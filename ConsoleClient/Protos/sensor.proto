@@ -1,0 +1,19 @@
+syntax = "proto3";
+option csharp_namespace = "Server";
+
+import "google/protobuf/timestamp.proto";
+package sensor;
+
+service Sensor {
+  rpc GetReading(SensorReadingRequest) returns (stream SensorReadingReply);
+}
+
+message SensorReadingRequest {
+
+}
+
+message SensorReadingReply {
+  float value = 1;
+  google.protobuf.Timestamp timestamp = 2;
+
+}
